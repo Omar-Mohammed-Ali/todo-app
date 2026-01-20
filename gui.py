@@ -2,7 +2,7 @@ import functions
 import FreeSimpleGUI as sg
 import time
 
-sg.theme("Darkpurple4")
+sg.theme("Black")
 
 
 clock = sg.Text("",key="clock")
@@ -25,6 +25,8 @@ window = sg.Window("My TODOS App",
 
 while True:
     event,values = window.read(timeout=200)
+    if event == sg.WIN_CLOSED or event == "Exit":
+        break
     window["clock"].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
     match event:
         case "Add":
